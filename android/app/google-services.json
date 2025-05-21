@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "288989797141",
+    "project_id": "habit-loop-za8ihp",
+    "storage_bucket": "habit-loop-za8ihp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:288989797141:android:df9c4c9c87e28f6239a71c",
+        "android_client_info": {
+          "package_name": "com.mindreaper.habitloop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCJPKuqyUTpo03aEsp3BxcODH6FDgcfMk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
