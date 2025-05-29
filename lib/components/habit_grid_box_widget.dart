@@ -96,7 +96,7 @@ class _HabitGridBoxWidgetState extends State<HabitGridBoxWidget> {
                 'Document Title',
                 maxLines: 1,
                 style: FlutterFlowTheme.of(context).titleMedium.override(
-                      font: GoogleFonts.fredoka(
+                      font: GoogleFonts.montserrat(
                         fontWeight:
                             FlutterFlowTheme.of(context).titleMedium.fontWeight,
                         fontStyle:
@@ -113,7 +113,7 @@ class _HabitGridBoxWidgetState extends State<HabitGridBoxWidget> {
                 'This is a detailed description of the document that provides additional context and information.',
                 maxLines: 1,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      font: GoogleFonts.nunito(
+                      font: GoogleFonts.montserrat(
                         fontWeight:
                             FlutterFlowTheme.of(context).bodyMedium.fontWeight,
                         fontStyle:

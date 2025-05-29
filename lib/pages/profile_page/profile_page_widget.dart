@@ -180,7 +180,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .headlineMedium
                                                 .override(
-                                                  font: GoogleFonts.fredoka(
+                                                  font: GoogleFonts.montserrat(
                                                     fontWeight:
                                                         FontWeight.normal,
                                                     fontStyle:
@@ -216,7 +216,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .titleSmall
                                                 .override(
-                                                  font: GoogleFonts.fredoka(
+                                                  font: GoogleFonts.montserrat(
                                                     fontWeight:
                                                         FlutterFlowTheme.of(
                                                                 context)

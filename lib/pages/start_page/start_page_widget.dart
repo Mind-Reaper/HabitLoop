@@ -61,7 +61,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                     'Build healthy habits with us',
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).displayMedium.override(
-                          font: GoogleFonts.fredoka(
+                          font: GoogleFonts.montserrat(
                             fontWeight: FontWeight.w600,
                             fontStyle: FlutterFlowTheme.of(context)
                                 .displayMedium
@@ -109,7 +109,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: Colors.white,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          font: GoogleFonts.fredoka(
+                          font: GoogleFonts.montserrat(
                             fontWeight: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .fontWeight,
@@ -147,7 +147,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: Color(0x004B39EF),
                     textStyle: FlutterFlowTheme.of(context).labelLarge.override(
-                          font: GoogleFonts.nunito(
+                          font: GoogleFonts.montserrat(
                             fontWeight: FlutterFlowTheme.of(context)
                                 .labelLarge
                                 .fontWeight,
@@ -178,7 +178,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                   child: Text(
                     'By starting or signing in, you agree to our Terms of use',
                     style: FlutterFlowTheme.of(context).bodySmall.override(
-                          font: GoogleFonts.nunito(
+                          font: GoogleFonts.montserrat(
                             fontWeight: FlutterFlowTheme.of(context)
                                 .bodySmall
                                 .fontWeight,

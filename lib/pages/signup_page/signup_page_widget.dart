@@ -82,7 +82,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
           title: Text(
             'Page Title',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  font: GoogleFonts.fredoka(
+                  font: GoogleFonts.montserrat(
                     fontWeight:
                         FlutterFlowTheme.of(context).headlineMedium.fontWeight,
                     fontStyle:
@@ -145,7 +145,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .displaySmall
                                     .override(
-                                      font: GoogleFonts.fredoka(
+                                      font: GoogleFonts.montserrat(
                                         fontWeight: FlutterFlowTheme.of(context)
                                             .displaySmall
                                             .fontWeight,
@@ -177,7 +177,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .displaySmall
                                         .override(
-                                          font: GoogleFonts.fredoka(
+                                          font: GoogleFonts.montserrat(
                                             fontWeight:
                                                 FlutterFlowTheme.of(context)
                                                     .displaySmall
@@ -206,7 +206,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            font: GoogleFonts.nunito(
+                                            font: GoogleFonts.montserrat(
                                               fontWeight:
                                                   FlutterFlowTheme.of(context)
                                                       .labelMedium
@@ -249,7 +249,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                                   context)
                                               .labelMedium
                                               .override(
-                                                font: GoogleFonts.nunito(
+                                                font: GoogleFonts.montserrat(
                                                   fontWeight:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -320,7 +320,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.nunito(
+                                              font: GoogleFonts.montserrat(
                                                 fontWeight:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -378,7 +378,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                                   context)
                                               .labelMedium
                                               .override(
-                                                font: GoogleFonts.nunito(
+                                                font: GoogleFonts.montserrat(
                                                   fontWeight:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -449,7 +449,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.nunito(
+                                              font: GoogleFonts.montserrat(
                                                 fontWeight:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -495,7 +495,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                                   context)
                                               .labelMedium
                                               .override(
-                                                font: GoogleFonts.nunito(
+                                                font: GoogleFonts.montserrat(
                                                   fontWeight:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -584,7 +584,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.nunito(
+                                              font: GoogleFonts.montserrat(
                                                 fontWeight:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -630,7 +630,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                                   context)
                                               .labelMedium
                                               .override(
-                                                font: GoogleFonts.nunito(
+                                                font: GoogleFonts.montserrat(
                                                   fontWeight:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -721,7 +721,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.nunito(
+                                              font: GoogleFonts.montserrat(
                                                 fontWeight:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -824,7 +824,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
-                                              font: GoogleFonts.fredoka(
+                                              font: GoogleFonts.montserrat(
                                                 fontWeight:
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmall
@@ -887,7 +887,8 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.nunito(
+                                                    font:
+                                                        GoogleFonts.montserrat(
                                                       fontWeight:
                                                           FontWeight.w600,
                                                       fontStyle:
@@ -913,7 +914,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .labelLarge
                                               .override(
-                                                font: GoogleFonts.nunito(
+                                                font: GoogleFonts.montserrat(
                                                   fontWeight:
                                                       FlutterFlowTheme.of(
                                                               context)

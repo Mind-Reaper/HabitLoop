@@ -115,6 +115,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'ProfilePage')
               : ProfilePageWidget(),
+        ),
+        FFRoute(
+          name: AddHabitPageWidget.routeName,
+          path: AddHabitPageWidget.routePath,
+          builder: (context, params) => AddHabitPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

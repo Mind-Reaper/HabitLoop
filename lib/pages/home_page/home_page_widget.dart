@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/components/calendar_date_box_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -7,6 +8,7 @@ import 'dart:async';
 import '/actions/actions.dart' as action_blocks;
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -61,145 +63,195 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return GestureDetector(
-      onTap: () {
-        FocusScope.of(context).unfocus();
-        FocusManager.instance.primaryFocus?.unfocus();
-      },
-      child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-          automaticallyImplyLeading: false,
-          title: Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Good Morning,',
-                style: FlutterFlowTheme.of(context).titleSmall.override(
-                      font: GoogleFonts.fredoka(
-                        fontWeight:
-                            FlutterFlowTheme.of(context).titleSmall.fontWeight,
-                        fontStyle:
-                            FlutterFlowTheme.of(context).titleSmall.fontStyle,
-                      ),
-                      letterSpacing: 0.0,
-                      fontWeight:
-                          FlutterFlowTheme.of(context).titleSmall.fontWeight,
-                      fontStyle:
-                          FlutterFlowTheme.of(context).titleSmall.fontStyle,
-                    ),
+    return FutureBuilder<List<IconsRecord>>(
+      future: queryIconsRecordOnce(),
+      builder: (context, snapshot) {
+        // Customize what your widget looks like when it's loading.
+        if (!snapshot.hasData) {
+          return Scaffold(
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            body: Center(
+              child: SizedBox(
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    FlutterFlowTheme.of(context).primary,
+                  ),
+                ),
               ),
-              Text(
-                FFAppState().currentUser.username,
-                style: FlutterFlowTheme.of(context).headlineLarge.override(
-                      font: GoogleFonts.fredoka(
-                        fontWeight: FontWeight.w800,
-                        fontStyle: FlutterFlowTheme.of(context)
-                            .headlineLarge
-                            .fontStyle,
-                      ),
-                      letterSpacing: 0.0,
-                      fontWeight: FontWeight.w800,
-                      fontStyle:
-                          FlutterFlowTheme.of(context).headlineLarge.fontStyle,
+            ),
+          );
+        }
+        List<IconsRecord> homePageIconsRecordList = snapshot.data!;
+
+        return GestureDetector(
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
+          child: Scaffold(
+            key: scaffoldKey,
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            floatingActionButton: FloatingActionButton(
+              onPressed: () async {
+                context.pushNamed(
+                  AddHabitPageWidget.routeName,
+                  extra: <String, dynamic>{
+                    kTransitionInfoKey: TransitionInfo(
+                      hasTransition: true,
+                      transitionType: PageTransitionType.bottomToTop,
                     ),
-              ),
-            ],
-          ),
-          actions: [
-            FlutterFlowIconButton(
-              borderRadius: 8.0,
-              buttonSize: 40.0,
-              icon: FaIcon(
-                FontAwesomeIcons.bell,
-                color: FlutterFlowTheme.of(context).primaryText,
+                  },
+                );
+              },
+              backgroundColor: FlutterFlowTheme.of(context).primary,
+              elevation: 8.0,
+              child: Icon(
+                Icons.add_rounded,
+                color: FlutterFlowTheme.of(context).info,
                 size: 24.0,
               ),
-              onPressed: () {
-                print('IconButton pressed ...');
-              },
             ),
-          ],
-          centerTitle: false,
-          elevation: 0.0,
-        ),
-        body: SafeArea(
-          top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Container(
-                height: 100.0,
-                decoration: BoxDecoration(),
-                child: Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
-                  child: Builder(
-                    builder: (context) {
-                      final calendarDates = FFAppState().calendarDates.toList();
-
-                      return ListView.separated(
-                        padding: EdgeInsets.fromLTRB(
-                          16.0,
-                          0,
-                          16.0,
-                          0,
+            appBar: AppBar(
+              backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+              automaticallyImplyLeading: false,
+              title: Column(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Good Morning,',
+                    style: FlutterFlowTheme.of(context).titleSmall.override(
+                          font: GoogleFonts.montserrat(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .fontStyle,
+                          ),
+                          letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .titleSmall
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).titleSmall.fontStyle,
                         ),
-                        primary: false,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: calendarDates.length,
-                        separatorBuilder: (_, __) => SizedBox(width: 10.0),
-                        itemBuilder: (context, calendarDatesIndex) {
-                          final calendarDatesItem =
-                              calendarDates[calendarDatesIndex];
-                          return Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 16.0, 0.0, 16.0),
-                              child: wrapWithModel(
-                                model: _model.calendarDateBoxModels.getModel(
-                                  calendarDatesItem.toString(),
-                                  calendarDatesIndex,
-                                ),
-                                updateCallback: () => safeSetState(() {}),
-                                child: CalendarDateBoxWidget(
-                                  key: Key(
-                                    'Keymai_${calendarDatesItem.toString()}',
-                                  ),
-                                  selected: functions.isSameDate(
-                                      FFAppState().selectedDate!,
-                                      calendarDatesItem),
-                                  date: calendarDatesItem,
-                                ),
-                              ),
+                  ),
+                  Text(
+                    FFAppState().currentUser.username,
+                    style: FlutterFlowTheme.of(context).headlineLarge.override(
+                          font: GoogleFonts.montserrat(
+                            fontWeight: FontWeight.w800,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .headlineLarge
+                                .fontStyle,
+                          ),
+                          letterSpacing: 0.0,
+                          fontWeight: FontWeight.w800,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .headlineLarge
+                              .fontStyle,
+                        ),
+                  ),
+                ],
+              ),
+              actions: [
+                FlutterFlowIconButton(
+                  borderRadius: 8.0,
+                  buttonSize: 40.0,
+                  icon: FaIcon(
+                    FontAwesomeIcons.bell,
+                    color: FlutterFlowTheme.of(context).primaryText,
+                    size: 24.0,
+                  ),
+                  onPressed: () {
+                    print('IconButton pressed ...');
+                  },
+                ),
+              ],
+              centerTitle: false,
+              elevation: 0.0,
+            ),
+            body: SafeArea(
+              top: true,
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Container(
+                    height: 100.0,
+                    decoration: BoxDecoration(),
+                    child: Align(
+                      alignment: AlignmentDirectional(0.0, 0.0),
+                      child: Builder(
+                        builder: (context) {
+                          final calendarDates =
+                              FFAppState().calendarDates.toList();
+
+                          return ListView.separated(
+                            padding: EdgeInsets.fromLTRB(
+                              16.0,
+                              0,
+                              16.0,
+                              0,
                             ),
+                            primary: false,
+                            scrollDirection: Axis.horizontal,
+                            itemCount: calendarDates.length,
+                            separatorBuilder: (_, __) => SizedBox(width: 10.0),
+                            itemBuilder: (context, calendarDatesIndex) {
+                              final calendarDatesItem =
+                                  calendarDates[calendarDatesIndex];
+                              return Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 16.0, 0.0, 16.0),
+                                  child: wrapWithModel(
+                                    model:
+                                        _model.calendarDateBoxModels.getModel(
+                                      calendarDatesItem.toString(),
+                                      calendarDatesIndex,
+                                    ),
+                                    updateCallback: () => safeSetState(() {}),
+                                    child: CalendarDateBoxWidget(
+                                      key: Key(
+                                        'Keymai_${calendarDatesItem.toString()}',
+                                      ),
+                                      selected: functions.isSameDate(
+                                          FFAppState().selectedDate!,
+                                          calendarDatesItem),
+                                      date: calendarDatesItem,
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
                           );
                         },
-                      );
-                    },
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              Expanded(
-                child: GridView(
-                  padding: EdgeInsets.zero,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                    crossAxisSpacing: 10.0,
-                    mainAxisSpacing: 10.0,
-                    childAspectRatio: 1.0,
+                  Expanded(
+                    child: GridView(
+                      padding: EdgeInsets.zero,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        crossAxisSpacing: 10.0,
+                        mainAxisSpacing: 10.0,
+                        childAspectRatio: 1.0,
+                      ),
+                      scrollDirection: Axis.horizontal,
+                      children: [],
+                    ),
                   ),
-                  scrollDirection: Axis.horizontal,
-                  children: [],
-                ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

@@ -84,7 +84,7 @@ class _CalendarDateBoxWidgetState extends State<CalendarDateBoxWidget> {
                       dateTimeFormat("dd", widget.date),
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).titleLarge.override(
-                            font: GoogleFonts.fredoka(
+                            font: GoogleFonts.montserrat(
                               fontWeight: FlutterFlowTheme.of(context)
                                   .titleLarge
                                   .fontWeight,
@@ -115,7 +115,7 @@ class _CalendarDateBoxWidgetState extends State<CalendarDateBoxWidget> {
                   Text(
                     dateTimeFormat("EEE", widget.date),
                     style: FlutterFlowTheme.of(context).bodySmall.override(
-                          font: GoogleFonts.nunito(
+                          font: GoogleFonts.montserrat(
                             fontWeight: FlutterFlowTheme.of(context)
                                 .bodySmall
                                 .fontWeight,
