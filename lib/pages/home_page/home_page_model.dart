@@ -1,6 +1,7 @@
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/calendar_date_box_widget.dart';
+import '/components/habit_grid_box_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'home_page_widget.dart' show HomePageWidget;
@@ -13,15 +14,19 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   UserStruct? user;
   // Models for CalendarDateBox dynamic component.
   late FlutterFlowDynamicModels<CalendarDateBoxModel> calendarDateBoxModels;
+  // Models for HabitGridBox dynamic component.
+  late FlutterFlowDynamicModels<HabitGridBoxModel> habitGridBoxModels;
 
   @override
   void initState(BuildContext context) {
     calendarDateBoxModels =
         FlutterFlowDynamicModels(() => CalendarDateBoxModel());
+    habitGridBoxModels = FlutterFlowDynamicModels(() => HabitGridBoxModel());
   }
 
   @override
   void dispose() {
     calendarDateBoxModels.dispose();
+    habitGridBoxModels.dispose();
   }
 }

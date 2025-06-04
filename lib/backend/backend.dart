@@ -5,6 +5,7 @@ import 'schema/util/firestore_util.dart';
 import 'schema/users_record.dart';
 import 'schema/icons_record.dart';
 import 'schema/habits_record.dart';
+import 'schema/completed_habits_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -16,6 +17,7 @@ export 'schema/util/schema_util.dart';
 export 'schema/users_record.dart';
 export 'schema/icons_record.dart';
 export 'schema/habits_record.dart';
+export 'schema/completed_habits_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -123,6 +125,43 @@ Future<List<HabitsRecord>> queryHabitsRecordOnce({
     queryCollectionOnce(
       HabitsRecord.collection,
       HabitsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query CompletedHabitsRecords (as a Stream and as a Future).
+Future<int> queryCompletedHabitsRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      CompletedHabitsRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<CompletedHabitsRecord>> queryCompletedHabitsRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      CompletedHabitsRecord.collection,
+      CompletedHabitsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<CompletedHabitsRecord>> queryCompletedHabitsRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      CompletedHabitsRecord.collection,
+      CompletedHabitsRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

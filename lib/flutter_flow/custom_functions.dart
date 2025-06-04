@@ -28,3 +28,26 @@ bool pastDate(DateTime date) {
 
   return date.isBefore(today);
 }
+
+DateTime currentDay() {
+  final now = DateTime.now();
+  final day = DateTime(now.year, now.month, now.day);
+  return day;
+}
+
+WeekDay weekDayFromDate(DateTime date) {
+  final weekday = DateFormat("EEEE").format(date).toLowerCase();
+  return WeekDay.values.byName(weekday);
+}
+
+IconsRecord? iconFromHabit(
+  List<IconsRecord> icons,
+  HabitsRecord habit,
+) {
+  final icon = icons.firstWhere((e) => e.reference.id == habit.reference.id);
+  return icon;
+}
+
+DateTime dayFromDateTIme(DateTime date) {
+  return DateTime(date.year, date.month, date.day);
+}

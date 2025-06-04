@@ -53,7 +53,7 @@ class _CalendarDateBoxWidgetState extends State<CalendarDateBoxWidget> {
         highlightColor: Colors.transparent,
         onTap: () async {
           FFAppState().selectedDate = widget.date;
-          _model.updatePage(() {});
+          FFAppState().update(() {});
         },
         child: Container(
           decoration: BoxDecoration(
@@ -66,7 +66,7 @@ class _CalendarDateBoxWidgetState extends State<CalendarDateBoxWidget> {
                 return FlutterFlowTheme.of(context).accent4;
               }
             }(),
-            borderRadius: BorderRadius.circular(16.0),
+            borderRadius: BorderRadius.circular(30.0),
           ),
           alignment: AlignmentDirectional(0.0, 0.0),
           child: Align(
@@ -85,9 +85,7 @@ class _CalendarDateBoxWidgetState extends State<CalendarDateBoxWidget> {
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).titleLarge.override(
                             font: GoogleFonts.montserrat(
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .titleLarge
-                                  .fontWeight,
+                              fontWeight: FontWeight.bold,
                               fontStyle: FlutterFlowTheme.of(context)
                                   .titleLarge
                                   .fontStyle,
@@ -102,10 +100,9 @@ class _CalendarDateBoxWidgetState extends State<CalendarDateBoxWidget> {
                                 return FlutterFlowTheme.of(context).primaryText;
                               }
                             }(),
+                            fontSize: 28.0,
                             letterSpacing: 0.0,
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .titleLarge
-                                .fontWeight,
+                            fontWeight: FontWeight.bold,
                             fontStyle: FlutterFlowTheme.of(context)
                                 .titleLarge
                                 .fontStyle,
@@ -133,6 +130,7 @@ class _CalendarDateBoxWidgetState extends State<CalendarDateBoxWidget> {
                               return FlutterFlowTheme.of(context).primaryText;
                             }
                           }(),
+                          fontSize: 16.0,
                           letterSpacing: 0.0,
                           fontWeight:
                               FlutterFlowTheme.of(context).bodySmall.fontWeight,

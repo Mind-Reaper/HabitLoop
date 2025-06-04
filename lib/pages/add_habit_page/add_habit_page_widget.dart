@@ -613,12 +613,25 @@ class _AddHabitPageWidgetState extends State<AddHabitPageWidget> {
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  'Icon',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        font: GoogleFonts.montserrat(
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 8.0),
+                                  child: Text(
+                                    'Icon',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          font: GoogleFonts.montserrat(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                          letterSpacing: 0.0,
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
                                                   .bodyMedium
@@ -628,14 +641,7 @@ class _AddHabitPageWidgetState extends State<AddHabitPageWidget> {
                                                   .bodyMedium
                                                   .fontStyle,
                                         ),
-                                        letterSpacing: 0.0,
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontWeight,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontStyle,
-                                      ),
+                                  ),
                                 ),
                                 Builder(
                                   builder: (context) {
@@ -674,22 +680,15 @@ class _AddHabitPageWidgetState extends State<AddHabitPageWidget> {
                                             width: 100.0,
                                             height: 100.0,
                                             decoration: BoxDecoration(
-                                              color: iconsItem.reference ==
+                                              color: iconsItem.reference !=
                                                       _model.selectedIcon
                                                   ? iconsItem.color
                                                   : Colors.white,
                                               borderRadius:
                                                   BorderRadius.circular(16.0),
                                               border: Border.all(
-                                                color: valueOrDefault<Color>(
-                                                  iconsItem.reference ==
-                                                          _model.selectedIcon
-                                                      ? Colors.white
-                                                      : iconsItem.color,
-                                                  FlutterFlowTheme.of(context)
-                                                      .accent4,
-                                                ),
-                                                width: 3.0,
+                                                color: Colors.transparent,
+                                                width: 0.0,
                                               ),
                                             ),
                                             child: Align(
